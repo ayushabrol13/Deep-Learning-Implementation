@@ -1,0 +1,208 @@
+Executing the job by B20AI052
+
+The following have been reloaded with a version change:
+  1) python/3.7 => python/3.8
+
+Mon Apr 24 18:41:25 2023       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 470.82.01    Driver Version: 470.82.01    CUDA Version: 11.4     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA A100-SXM...  On   | 00000000:4E:00.0 Off |                    0 |
+| N/A   29C    P0    51W / 400W |      0MiB / 40536MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+|   1  NVIDIA A100-SXM...  On   | 00000000:90:00.0 Off |                    0 |
+| N/A   35C    P0    55W / 400W |      0MiB / 40536MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+2023-04-24 18:41:31,611 ignite.distributed.launcher.Parallel INFO: Initialized distributed launcher with backend: 'gloo'
+2023-04-24 18:41:31,612 ignite.distributed.launcher.Parallel INFO: - Parameters to spawn processes: 
+	nproc_per_node: 2
+	nnodes: 1
+	node_rank: 0
+	start_method: fork
+	dist_url: tcp://127.0.0.1:3333
+2023-04-24 18:41:31,612 ignite.distributed.launcher.Parallel INFO: Spawn function '<function training at 0x7fe5e6ce6af0>' in 2 processes
+Results for 1 GPU with 2 processes
+2023-04-24 18:41:31,973 SVHN-Training INFO: Train on SVHN
+2023-04-24 18:41:31,973 SVHN-Training INFO: - PyTorch version: 2.0.0+cu117
+2023-04-24 18:41:31,973 SVHN-Training INFO: - Ignite version: 0.4.11
+2023-04-24 18:41:31,973 SVHN-Training INFO: - GPU Device: NVIDIA A100-SXM4-40GB
+2023-04-24 18:41:31,973 SVHN-Training INFO: - CUDA version: 11.7
+2023-04-24 18:41:31,975 SVHN-Training INFO: - CUDNN version: 8500
+2023-04-24 18:41:31,975 SVHN-Training INFO: 
+
+2023-04-24 18:41:31,975 SVHN-Training INFO: Configuration:
+2023-04-24 18:41:31,975 SVHN-Training INFO: 	data_path: ./data/
+2023-04-24 18:41:31,975 SVHN-Training INFO: 	output_path: output/
+2023-04-24 18:41:31,975 SVHN-Training INFO: 	model: resnet18
+2023-04-24 18:41:31,975 SVHN-Training INFO: 	batch_size1: 32
+2023-04-24 18:41:31,975 SVHN-Training INFO: 	batch_size2: 64
+2023-04-24 18:41:31,975 SVHN-Training INFO: 	momentum: 0.9
+2023-04-24 18:41:31,975 SVHN-Training INFO: 	weight_decay: 0.0001
+2023-04-24 18:41:31,976 SVHN-Training INFO: 	num_workers: 2
+2023-04-24 18:41:31,976 SVHN-Training INFO: 	num_epochs: 30
+2023-04-24 18:41:31,976 SVHN-Training INFO: 	learning_rate: 0.001
+2023-04-24 18:41:31,976 SVHN-Training INFO: 	num_warmup_epochs: 1
+2023-04-24 18:41:31,976 SVHN-Training INFO: 	validate_every: 3
+2023-04-24 18:41:31,976 SVHN-Training INFO: 	checkpoint_every: 200
+2023-04-24 18:41:31,976 SVHN-Training INFO: 	backend: gloo
+2023-04-24 18:41:31,976 SVHN-Training INFO: 	resume_from: None
+2023-04-24 18:41:31,976 SVHN-Training INFO: 	log_every_iters: 15
+2023-04-24 18:41:31,978 SVHN-Training INFO: 	nproc_per_node: None
+2023-04-24 18:41:31,978 SVHN-Training INFO: 	with_clearml: False
+2023-04-24 18:41:31,978 SVHN-Training INFO: 	with_amp: False
+2023-04-24 18:41:31,978 SVHN-Training INFO: 
+
+2023-04-24 18:41:31,978 SVHN-Training INFO: 
+Distributed setting:
+2023-04-24 18:41:31,978 SVHN-Training INFO: 	backend: gloo
+2023-04-24 18:41:31,978 SVHN-Training INFO: 	world size: 2
+2023-04-24 18:41:31,978 SVHN-Training INFO: 
+
+2023-04-24 18:41:31,986 SVHN-Training INFO: Output path: output/resnet18_backend-gloo-2_20230424-184131
+2023-04-24 18:41:36,143 ignite.distributed.auto.auto_dataloader INFO: Use data loader kwargs for dataset 'Dataset SVHN
+    Num': 
+	{'batch_size': 16, 'num_workers': 1, 'sampler': <torch.utils.data.distributed.DistributedSampler object at 0x7fe5e4301eb0>, 'pin_memory': True}
+2023-04-24 18:41:36,144 ignite.distributed.auto.auto_dataloader INFO: Use data loader kwargs for dataset 'Dataset SVHN
+    Num': 
+	{'batch_size': 1, 'num_workers': 1, 'sampler': <torch.utils.data.distributed.DistributedSampler object at 0x7fe5e431b2b0>, 'pin_memory': True}
+2023-04-24 18:41:37,930 ignite.distributed.auto.auto_model INFO: Apply torch DistributedDataParallel on model, device id: 0
+Using downloaded and verified file: ./data/train_32x32.mat
+Using downloaded and verified file: ./data/test_32x32.mat
+2023-04-24 18:41:38,028 SVHN-Training INFO: Engine run starting with max_epochs=30.
+Using downloaded and verified file: ./data/train_32x32.mat
+Using downloaded and verified file: ./data/test_32x32.mat
+2023-04-24 18:43:36,476 SVHN-Training INFO: Epoch[1] Complete. Time taken: 00:01:56.176
+2023-04-24 18:45:30,605 SVHN-Training INFO: Epoch[2] Complete. Time taken: 00:01:54.127
+2023-04-24 18:47:47,856 SVHN-Training INFO: 
+Epoch 3 - Evaluation time (seconds): 25.96 - train metrics:
+ 	Accuracy: 0.9253050861339376
+	Loss: 0.2484524407743864
+2023-04-24 18:49:07,298 SVHN-Training INFO: 
+Epoch 3 - Evaluation time (seconds): 79.37 - val metrics:
+ 	Accuracy: 0.8898279041180086
+	Loss: 0.36301280035149047
+2023-04-24 18:49:07,299 SVHN-Training INFO: Epoch[3] Complete. Time taken: 00:03:36.692
+2023-04-24 18:50:58,803 SVHN-Training INFO: Epoch[4] Complete. Time taken: 00:01:51.504
+2023-04-24 18:52:50,679 SVHN-Training INFO: Epoch[5] Complete. Time taken: 00:01:51.875
+2023-04-24 18:55:08,213 SVHN-Training INFO: 
+Epoch 6 - Evaluation time (seconds): 26.08 - train metrics:
+ 	Accuracy: 0.9592672472630975
+	Loss: 0.13703740120532912
+2023-04-24 18:56:28,136 SVHN-Training INFO: 
+Epoch 6 - Evaluation time (seconds): 79.85 - val metrics:
+ 	Accuracy: 0.9043484941610326
+	Loss: 0.3281271758076598
+2023-04-24 18:56:28,136 SVHN-Training INFO: Epoch[6] Complete. Time taken: 00:03:37.456
+2023-04-24 18:58:19,855 SVHN-Training INFO: Epoch[7] Complete. Time taken: 00:01:51.719
+2023-04-24 19:00:11,355 SVHN-Training INFO: Epoch[8] Complete. Time taken: 00:01:51.500
+2023-04-24 19:02:29,191 SVHN-Training INFO: 
+Epoch 9 - Evaluation time (seconds): 26.08 - train metrics:
+ 	Accuracy: 0.9801523383111742
+	Loss: 0.07020394343663831
+2023-04-24 19:03:49,253 SVHN-Training INFO: 
+Epoch 9 - Evaluation time (seconds): 79.99 - val metrics:
+ 	Accuracy: 0.9076137062077443
+	Loss: 0.3397168779050784
+2023-04-24 19:03:49,253 SVHN-Training INFO: Epoch[9] Complete. Time taken: 00:03:37.898
+2023-04-24 19:05:41,111 SVHN-Training INFO: Epoch[10] Complete. Time taken: 00:01:51.857
+2023-04-24 19:07:32,965 SVHN-Training INFO: Epoch[11] Complete. Time taken: 00:01:51.854
+2023-04-24 19:09:50,609 SVHN-Training INFO: 
+Epoch 12 - Evaluation time (seconds): 26.01 - train metrics:
+ 	Accuracy: 0.9895438040896557
+	Loss: 0.04008080015578503
+2023-04-24 19:11:10,686 SVHN-Training INFO: 
+Epoch 12 - Evaluation time (seconds): 80.01 - val metrics:
+ 	Accuracy: 0.9067685925015365
+	Loss: 0.3626661716829287
+2023-04-24 19:11:10,686 SVHN-Training INFO: Epoch[12] Complete. Time taken: 00:03:37.721
+2023-04-24 19:13:02,240 SVHN-Training INFO: Epoch[13] Complete. Time taken: 00:01:51.554
+2023-04-24 19:14:54,275 SVHN-Training INFO: Epoch[14] Complete. Time taken: 00:01:52.034
+2023-04-24 19:17:12,627 SVHN-Training INFO: 
+Epoch 15 - Evaluation time (seconds): 25.92 - train metrics:
+ 	Accuracy: 0.9945944470228507
+	Loss: 0.02043789759416207
+2023-04-24 19:18:35,199 SVHN-Training INFO: 
+Epoch 15 - Evaluation time (seconds): 82.50 - val metrics:
+ 	Accuracy: 0.9113014751075599
+	Loss: 0.3904261011687538
+2023-04-24 19:18:35,199 SVHN-Training INFO: Epoch[15] Complete. Time taken: 00:03:40.924
+2023-04-24 19:20:29,357 SVHN-Training INFO: Epoch[16] Complete. Time taken: 00:01:54.157
+2023-04-24 19:22:23,899 SVHN-Training INFO: Epoch[17] Complete. Time taken: 00:01:54.542
+2023-04-24 19:24:45,503 SVHN-Training INFO: 
+Epoch 18 - Evaluation time (seconds): 27.17 - train metrics:
+ 	Accuracy: 0.9922192798056185
+	Loss: 0.025512365383729422
+2023-04-24 19:26:11,021 SVHN-Training INFO: 
+Epoch 18 - Evaluation time (seconds): 85.45 - val metrics:
+ 	Accuracy: 0.9052704363859865
+	Loss: 0.42634966099416105
+2023-04-24 19:26:11,022 SVHN-Training INFO: Epoch[18] Complete. Time taken: 00:03:47.123
+2023-04-24 19:28:05,956 SVHN-Training INFO: Epoch[19] Complete. Time taken: 00:01:54.934
+2023-04-24 19:30:00,281 SVHN-Training INFO: Epoch[20] Complete. Time taken: 00:01:54.325
+2023-04-24 19:32:21,958 SVHN-Training INFO: 
+Epoch 21 - Evaluation time (seconds): 27.23 - train metrics:
+ 	Accuracy: 0.9978568893499686
+	Loss: 0.009072196373284318
+2023-04-24 19:33:47,707 SVHN-Training INFO: 
+Epoch 21 - Evaluation time (seconds): 85.67 - val metrics:
+ 	Accuracy: 0.9077673632452367
+	Loss: 0.4406313623617087
+2023-04-24 19:33:47,708 SVHN-Training INFO: Epoch[21] Complete. Time taken: 00:03:47.426
+2023-04-24 19:35:42,941 SVHN-Training INFO: Epoch[22] Complete. Time taken: 00:01:55.233
+2023-04-24 19:37:38,303 SVHN-Training INFO: Epoch[23] Complete. Time taken: 00:01:55.361
+2023-04-24 19:40:01,204 SVHN-Training INFO: 
+Epoch 24 - Evaluation time (seconds): 27.44 - train metrics:
+ 	Accuracy: 0.9984984575063475
+	Loss: 0.006720086678086779
+2023-04-24 19:41:26,938 SVHN-Training INFO: 
+Epoch 24 - Evaluation time (seconds): 85.66 - val metrics:
+ 	Accuracy: 0.9142977873386601
+	Loss: 0.4191586917063614
+2023-04-24 19:41:26,938 SVHN-Training INFO: Epoch[24] Complete. Time taken: 00:03:48.635
+2023-04-24 19:43:22,386 SVHN-Training INFO: Epoch[25] Complete. Time taken: 00:01:55.448
+2023-04-24 19:45:17,842 SVHN-Training INFO: Epoch[26] Complete. Time taken: 00:01:55.456
+2023-04-24 19:47:41,224 SVHN-Training INFO: 
+Epoch 27 - Evaluation time (seconds): 27.25 - train metrics:
+ 	Accuracy: 0.9989762210270551
+	Loss: 0.00515001064703471
+2023-04-24 19:49:07,015 SVHN-Training INFO: 
+Epoch 27 - Evaluation time (seconds): 85.72 - val metrics:
+ 	Accuracy: 0.9116087891825445
+	Loss: 0.45853083164470654
+2023-04-24 19:49:07,015 SVHN-Training INFO: Epoch[27] Complete. Time taken: 00:03:49.172
+2023-04-24 19:51:02,037 SVHN-Training INFO: Epoch[28] Complete. Time taken: 00:01:55.022
+2023-04-24 19:52:57,222 SVHN-Training INFO: Epoch[29] Complete. Time taken: 00:01:55.184
+2023-04-24 19:55:19,596 SVHN-Training INFO: 
+Epoch 30 - Evaluation time (seconds): 27.17 - train metrics:
+ 	Accuracy: 0.9991536760490322
+	Loss: 0.0040512020391544265
+2023-04-24 19:56:45,331 SVHN-Training INFO: 
+Epoch 30 - Evaluation time (seconds): 85.65 - val metrics:
+ 	Accuracy: 0.9137215734480639
+	Loss: 0.4540605222658651
+2023-04-24 19:56:45,332 SVHN-Training INFO: Epoch[30] Complete. Time taken: 00:03:48.110
+2023-04-24 19:57:12,647 SVHN-Training INFO: 
+Epoch 30 - Evaluation time (seconds): 27.23 - train metrics:
+ 	Accuracy: 0.9991536760490322
+	Loss: 0.0040512020391544265
+2023-04-24 19:58:38,399 SVHN-Training INFO: 
+Epoch 30 - Evaluation time (seconds): 85.68 - val metrics:
+ 	Accuracy: 0.9137215734480639
+	Loss: 0.4540605222658651
+2023-04-24 19:58:38,400 SVHN-Training INFO: Engine run complete. Time taken: 00:28:10.371
+2023-04-24 19:58:39,050 ignite.distributed.launcher.Parallel INFO: End of run
+Training completed for 1 GPU with 2 processes
